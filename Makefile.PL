@@ -17,6 +17,11 @@ WriteMakefile(
     PREREQ_PM     => { 'Test::More' => 0 },
     LIBS          => [ "$libs -lstree" ],
     INC           => $inc,
+    (eval { ExtUtils::MakeMaker->VERSION(6.46) } ? (META_MERGE => {
+        resources => {
+            Repository => 'http://github.com/gray/tree-suffix'
+        }
+    }) : () ),
     dist          => { COMPRESS => 'gzip -9f', SUFFIX => '.gz', },
     clean         => { FILES => 'Tree-Suffix-*' },
 );
