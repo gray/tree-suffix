@@ -1,3 +1,5 @@
+#define PERL_NO_GET_CONTEXT
+
 #include "EXTERN.h"
 #include "perl.h"
 #include "XSUB.h"
@@ -46,7 +48,7 @@ follow_string (LST_STree *tree, LST_String *string) {
     return (done < string->num_items - 1) ? NULL : node;
 }
 
-typedef LST_STree * Tree__Suffix;
+typedef LST_STree *Tree__Suffix;
 
 MODULE = Tree::Suffix  PACKAGE = Tree::Suffix
 
