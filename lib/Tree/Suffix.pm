@@ -180,7 +180,7 @@ When reporting a bug, first verify that you can successfully run the tests in
 the libstree distribution.
 
 Please report any bugs or feature requests to
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Tree-Suffix>. I will be
+L<http://rt.cpan.org/Public/Bug/Report.html?Queue=Tree-Suffix>. I will be
 notified, and then you'll automatically be notified of progress on your bug as
 I make changes.
 
@@ -194,6 +194,10 @@ You can also look for information at:
 
 =over
 
+=item * GitHub Source Repository
+
+L<http://github.com/gray/tree-suffix>
+
 =item * AnnoCPAN: Annotated CPAN documentation
 
 L<http://annocpan.org/dist/Tree-Suffix>
@@ -204,7 +208,7 @@ L<http://cpanratings.perl.org/d/Tree-Suffix>
 
 =item * RT: CPAN's request tracker
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Tree-Suffix>
+L<http://rt.cpan.org/Public/Dist/Display.html?Dist=Tree-Suffix>
 
 =item * Search CPAN
 
