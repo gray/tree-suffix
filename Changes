@@ -1,5 +1,11 @@
 Revision history for Tree-Suffix
 
+0.21  Wed Sep 2 19:12:48 UTC 2009
+    - Used Devel::CheckLib
+    - Updated ppport.h.
+    - Moved author tests to separate directory.
+    - Added TODO test for RT #43650.
+
 0.20  Thu Jun 5 16:58:32 UTC 2008
     - No changes.
     - Prevented erroneous automated build failure reports from CPAN testers.
