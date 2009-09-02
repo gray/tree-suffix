@@ -1,29 +1,37 @@
 use strict;
 use warnings;
+use Config;
 use ExtUtils::MakeMaker;
 
-# Eventually use Devel::CheckLib
-exit if $ENV{AUTOMATED_TESTING};
+use lib qw(inc);
+use Devel::CheckLib;
 
-my $libs = join ' ', grep { defined } @ENV{qw(LDFLAGS LD_LIBRARY_PATH)};
-my $inc  = join ' ', grep { defined } @ENV{qw(CFLAGS CXXFLAGS CPPFLAGS)};
+check_lib_or_exit(
+    lib     => [qw( stree )],
+    libpath => [ split ' ', $Config{loclibpth} ],
+    header  => 'libstree.h',
+    incpath => [ split ' ', $Config{locincpth} ],
+);
 
-WriteMakefile(
+my %conf = (
     NAME          => 'Tree::Suffix',
     AUTHOR        => 'gray <gray@cpan.org>',
     LICENSE       => 'perl',
     VERSION_FROM  => 'lib/Tree/Suffix.pm',
     ABSTRACT_FROM => 'lib/Tree/Suffix.pm',
     PREREQ_PM     => { 'Test::More' => 0 },
-    LIBS          => [ "$libs -lstree" ],
-    INC           => $inc,
-    (eval { ExtUtils::MakeMaker->VERSION(6.46) } ? (
-        META_MERGE => {
-            resources => {
-                repository => 'http://github.com/gray/tree-suffix',
-            }
-        }
-    ) : () ),
+    LIBS          => [ "-lstree" ],
+    META_MERGE    => {
+        resources => {
+            repository => 'http://github.com/gray/tree-suffix',
+        },
+    },
     dist          => { COMPRESS => 'gzip -9f', SUFFIX => '.gz', },
     clean         => { FILES => 'Tree-Suffix-*' },
 );
+
+unless (eval { ExtUtils::MakeMaker->VERSION(6.46) }) {
+    delete $conf{META_MERGE};
+}
+
+WriteMakefile(%conf);
