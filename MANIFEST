@@ -1,4 +1,6 @@
+.perlcriticrc
 Changes
+inc/Devel/CheckLib.pm
 lib/Tree/Suffix.pm
 Makefile.PL
 MANIFEST			This list of files
@@ -18,7 +20,8 @@ t/09_duplicates.t
 t/10_string.t
 t/11_memleak.t
 t/12_index_vs_id.t
-t/99_kwalitee.t
-t/99_pod.t
-t/99_pod_coverage.t
 typemap
+xt/kwalitee.t
+xt/perlcritic.t
+xt/pod.t
+xt/pod_coverage.t
