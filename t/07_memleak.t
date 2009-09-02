@@ -35,12 +35,12 @@ for (@{$p->table}) {
 {
     my $tree = Tree::Suffix->new();
     $tree->insert('aa'..'gg');
-    my $start = $p->rss;
+    my $start = $p->size;
     for (my $i=0; $i<200; $i++) {
         $tree = Tree::Suffix->new();
         $tree->insert('aa'..'gg');
     }
-    my $end = $p->rss;
+    my $end = $p->size;
     if ($end - $start > 1_000) {
         diag("\nMemory: $start -> $end\nVerify that you have libstree >= 0.4.2");
         ok(0, 'new()/insert()');

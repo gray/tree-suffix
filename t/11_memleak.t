@@ -18,11 +18,11 @@ for (@{$p->table}) {
     my $str = "mississippi";
     my $tree = Tree::Suffix->new($str);
 
-    my $start = $p->rss;
+    my $start = $p->size;
     for (my $i=0; $i<100_000; $i++) {
         my @matches = $tree->find('is');
     }
-    my $end = $p->rss;
+    my $end = $p->size;
     if ($end - $start > 1_000) {
         diag("Memory leak: $start -> $end");
         ok(0, 'find()');
