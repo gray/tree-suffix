@@ -3,17 +3,13 @@ package Tree::Suffix;
 use strict;
 use warnings;
 
-our $VERSION = '0.21';
+use XSLoader;
+
+our $VERSION = '0.22';
+our $XS_VERSION = $VERSION;
 $VERSION = eval $VERSION;
 
-eval {
-    require XSLoader;
-    XSLoader::load(__PACKAGE__, $VERSION);
-    1;
-} or do {
-    require DynaLoader;
-    DynaLoader::bootstrap(__PACKAGE__, $VERSION);
-};
+XSLoader::load(__PACKAGE__, $XS_VERSION);
 
 1;
 
@@ -65,6 +61,9 @@ Tree::Suffix - Perl interface to the libstree library.
 
 The C<Tree::Suffix> module provides an interface to the C library libstree,
 which implements generic suffix trees.
+
+NOTICE: as libstree has outstanding bugs and has long been abandoned, this
+distribution is not being maintained.
 
 =head1 METHODS
 

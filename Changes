@@ -1,5 +1,11 @@
 Revision history for Tree-Suffix
 
+0.22  Wed Mar  4 00:32:38 UTC 2015
+    - Added non-maintaining notice.
+    - Added Devel::CheckLib to configure_requires, instead of bundling it.
+      RT #91418, #102498
+    - Silence some compiler warnings.
+
 0.21  Wed Sep 2 19:12:48 UTC 2009
     - Used Devel::CheckLib
     - Updated ppport.h.
