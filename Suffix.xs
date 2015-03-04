@@ -199,8 +199,8 @@ CODE:
                 }
             }
         }
-        next_item: 1;
-        lst_string_free(str);
+        next_item:
+            lst_string_free(str);
     }
     XSRETURN_IV(done);
 
@@ -264,7 +264,7 @@ PPCODE:
     /* Perform a depth-first search from matching node to find leafs. */
     TAILQ_INIT(&stack);
     TAILQ_INSERT_HEAD(&stack, node, iteration);
-    while (node = stack.tqh_first) {
+    while ((node = stack.tqh_first)) {
         TAILQ_REMOVE(&stack, stack.tqh_first, iteration);
         if (lst_node_is_leaf(node)) {
             match = (AV *)newAV();
