@@ -1,9 +1,8 @@
 use strict;
 use warnings;
+
 use Config;
 use ExtUtils::MakeMaker;
-
-use lib qw(inc);
 use Devel::CheckLib;
 
 check_lib_or_exit(
@@ -14,13 +13,15 @@ check_lib_or_exit(
 );
 
 my %conf = (
-    NAME          => 'Tree::Suffix',
-    AUTHOR        => 'gray <gray@cpan.org>',
-    LICENSE       => 'perl',
-    VERSION_FROM  => 'lib/Tree/Suffix.pm',
-    ABSTRACT_FROM => 'lib/Tree/Suffix.pm',
-    PREREQ_PM     => { 'Test::More' => 0 },
-    LIBS          => [ "-lstree" ],
+    NAME               => 'Tree::Suffix',
+    AUTHOR             => 'gray <gray@cpan.org>',
+    LICENSE            => 'perl',
+    VERSION_FROM       => 'lib/Tree/Suffix.pm',
+    ABSTRACT_FROM      => 'lib/Tree/Suffix.pm',
+    CONFIGURE_REQUIRES => { 'Devel::CheckLib' => 0 },
+    PREREQ_PM          => { XSLoader => 0, },
+    BUILD_REQUIRES     => { 'Test::More' => 0 },
+    LIBS               => ["-lstree"],
     META_MERGE    => {
         resources => {
             repository => 'http://github.com/gray/tree-suffix',
